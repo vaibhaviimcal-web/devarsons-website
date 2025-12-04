@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Devarsons - The Colour Solution Company. Over a century of excellence in specialty colourants and application-based solutions.">
+    <title>Devarsons Industries | The Colour Solution Company</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pastel-base: #E8E4DF;
+            --burnt-orange: #D4622F;
+            --deep-green: #2C5F4F;
+            --text-dark: #2A2A2A;
+            --text-light: #666;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .keyword {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--white);
+            opacity: 0;
+            position: absolute;
+            letter-spacing: 0.3rem;
+        }
+
+        .logo-container {
+            opacity: 0;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.2rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--pastel-base);
+            margin-top: 1rem;
+            letter-spacing: 0.15rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: 0.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--burnt-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--burnt-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--pastel-base) 0%, #F5F3F0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(212, 98, 47, 0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, 30px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero-text h1 strong {
+            font-weight: 600;
+            color: var(--burnt-orange);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--deep-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 95, 79, 0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--burnt-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 98, 47, 0.3);
+        }
+
+        /* Buzzwords Section */
+        .buzzwords {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .buzzword {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .buzzword:nth-child(1) { animation-delay: 0.1s; }
+        .buzzword:nth-child(2) { animation-delay: 0.2s; }
+        .buzzword:nth-child(3) { animation-delay: 0.3s; }
+        .buzzword:nth-child(4) { animation-delay: 0.4s; }
+        .buzzword:nth-child(5) { animation-delay: 0.5s; }
+        .buzzword:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .buzzword:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .buzzword-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .buzzword-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: var(--deep-green);
+            padding: 4rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quote {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            transition: opacity 1s ease;
+        }
+
+        .quote.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--white);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-author {
+            font-size: 1.1rem;
+            color: var(--pastel-base);
+            font-weight: 400;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-section.alt {
+            background: var(--pastel-base);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header .accent {
+            color: var(--burnt-orange);
+            font-weight: 500;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--burnt-orange);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .styled-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .styled-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--burnt-orange);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--pastel-base);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--burnt-orange);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--deep-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: var(--burnt-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1rem;
+        }
+
+        .footer-tagline {
+            color: var(--pastel-base);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--pastel-base);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--burnt-orange);
+        }
+
+        .copyright {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content,
+            .two-column,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .buzzwords {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="keyword" id="kw1">LISTEN</div>
+        <div class="keyword" id="kw2">UNDERSTAND</div>
+        <div class="keyword" id="kw3">DEFINE</div>
+        <div class="keyword" id="kw4">ITERATE</div>
+        <div class="keyword" id="kw5">DOMINATE</div>
+        <div class="logo-container" id="logo-container">
+            <div class="logo-text">DEVARSONS</div>
+            <div class="tagline">The Colour Solution Company.</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">DEVARSONS</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#partnership">Partnership</a></li>
+                <li><a href="#manufacturing">Manufacturing</a></li>
+                <li><a href="#rd">R&D</a></li>
+                <li><a href="#why">Why Devarsons</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Precision in <strong>Colour</strong>.<br>Partnership in <strong>Practice</strong>.</h1>
+                <p>Developing innovative and customized colourants for global industries since 1923. Your strategic partner for advanced colour solutions.</p>
+                <a href="#why" class="cta-button">Discover Our Difference</a>
+            </div>
+            <div class="buzzwords">
+                <div class="buzzword">
+                    <div class="buzzword-icon">🏆</div>
+                    <div class="buzzword-text">Over a Century of Experience</div>
+                </div>
+                <div class="buzzword">
+                    <div class="buzzword-icon">💼</div>
+                    <div class="buzzword-text">Fully SAP Integrated</div>
+                </div>
+                <div class="buzzword">
+                    <div class="buzzword-icon">💪</div>
+                    <div class="buzzword-text">Debt Free Company</div>
+                </div>
+                <div class="buzzword">
+                    <div class="buzzword-icon">✓</div>
+                    <div class="buzzword-text">Responsible Sourcing Audited</div>
+                </div>
+                <div class="buzzword">
+                    <div class="buzzword-icon">🎯</div>
+                    <div class="buzzword-text">Application Oriented Focus</div>
+                </div>
+                <div class="buzzword">
+                    <div class="buzzword-icon">🌟</div>
+                    <div class="buzzword-text">ISO 9001 | 14001 | 45001 Certified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <div class="quote active">
+                <p class="quote-text">"The goal as a company is to have customer service that is not just the best, but legendary."</p>
+                <p class="quote-author">— Sam Walton</p>
+            </div>
+            <div class="quote">
+                <p class="quote-text">"Don't find customers for your products, find products for your customers."</p>
+                <p class="quote-author">— Seth Godin</p>
+            </div>
+            <div class="quote">
+                <p class="quote-text">"Quality means doing it right when no one is looking."</p>
+                <p class="quote-author">— Henry Ford</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="content-section" id="about">
+        <div class="section-header">
+            <h2>A Legacy of <span class="accent">Innovation</span> in Specialty Colourants</h2>
+            <p>Established in 1923, Devarsons brings over 100 years of dedicated experience to the world of specialty colourants.</p>
+        </div>
+        <div class="two-column">
+            <div>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem;">
+                    We are a Government Recognized Export House, committed to the highest standards of quality and environmental stewardship, as demonstrated by our ISO 9001, ISO 14001, and ISO 45001 accreditations.
+                </p>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Core Values</h3>
+                <ul class="styled-list">
+                    <li>Customer Centricity</li>
+                    <li>Innovation & Customization</li>
+                    <li>Unwavering Quality</li>
+                    <li>Responsible Practices</li>
+                    <li>Long-term Partnerships</li>
+                </ul>
+            </div>
+            <div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Our Journey</h3>
+                    <p>From our founding in 1923 to becoming a global leader in specialty colourants, our journey has been marked by continuous innovation, unwavering commitment to quality, and deep partnerships with industry leaders worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="content-section alt" id="philosophy">
+        <div class="section-header">
+            <h2>Solutions Engineered for <span class="accent">Your Application</span></h2>
+        </div>
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.3rem; font-style: italic; color: var(--burnt-orange); margin-bottom: 2rem;">
+                "Don't find customers for your products, find products for your customers." — Seth Godin
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
+                Our philosophy is simple: <strong>To offer customized solutions for dye applications to our customers.</strong> We believe in understanding your unique challenges to develop or tailor molecules that deliver precise performance.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">
+                We specialize in developing new molecules or adapting known ones for highly specialized applications. Our diverse portfolio encompasses an assortment of dye classes, enabling us to recommend the optimal chemistry for evolved applications while ensuring compliance with stringent worldwide regulations.
+            </p>
+        </div>
+    </section>
+
+    <!-- Partnership -->
+    <section class="content-section" id="partnership">
+        <div class="section-header">
+            <h2>Building Success <span class="accent">Together</span></h2>
+            <p>Our Commitment to You</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👂</div>
+                <h3>We Listen</h3>
+                <p>True partnership begins with understanding. Our R&D and technical teams engage deeply with your requirements, capable of modifying existing dyes and processes to address specific needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>We Deliver</h3>
+                <p>Efficiency and transparency are hallmarks of our service, powered by a fully integrated SAP platform with real-time information and automated order processing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>We Partner</h3>
+                <p>We have a proven track record of creating viable, high-performance alternatives for leading MNCs, ensuring supply chain stability and innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing -->
+    <section class="content-section alt" id="manufacturing">
+        <div class="section-header">
+            <h2>Precision, Consistency, <span class="accent">Responsibility</span></h2>
+        </div>
+        <div class="two-column">
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Manufacturing Philosophy</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem;">
+                    Our commitment is to produce a consistently high-quality product with minimal deviation, batch after batch. This is achieved through a strategic combination of advanced manufacturing equipment, rigorous statistical process control tools, and consistent sourcing of high-grade raw materials.
+                </p>
+            </div>
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Continuous Improvement</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">
+                    We foster a culture of Continuous Improvement across all operations, constantly seeking ways to enhance efficiency, product quality, and sustainability. Reducing our carbon footprint and adhering to our comprehensive EHSMS Policy are integral to our manufacturing ethos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- R&D -->
+    <section class="content-section" id="rd">
+        <div class="section-header">
+            <h2>Pioneering <span class="accent">Colourant Technology</span></h2>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>Development Lab</h3>
+                <p>Focused on creating efficient and scalable production processes and minimizing waste through innovative chemical engineering.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Analytical Lab</h3>
+                <p>Dedicated to in-house testing to meet global standards and developing internal specifications that often exceed standard parameters.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Application Lab</h3>
+                <p>Tasked with identifying the correct existing molecules or modifying/developing new ones to meet precise end-use requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Devarsons -->
+    <section class="content-section alt" id="why">
+        <div class="section-header">
+            <h2>The Devarsons <span class="accent">Advantage</span></h2>
+            <p>Your Strategic Colour Partner</p>
+        </div>
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="feature-card">
+                    <h3>🏆 Century of Expertise</h3>
+                    <p>Leveraging 100+ years of experience to deliver novel ideas and reliable solutions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Application-Focused</h3>
+                    <p>Your needs drive our innovation. We customize products for your specific applications.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✓ Regulatory Compliance</h3>
+                    <p>Global standards met, with audited responsible sourcing for peace of mind.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Confidentiality</h3>
+                    <p>Trusted partner for global MNCs, operating under strict NDAs to protect your IP.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌱 EHSMS Priority</h3>
+                    <p>Reliable product quality underpinned by robust systems and strong EHS commitment.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💪 Financial Stability</h3>
+                    <p>A debt-free company, ensuring a stable and reliable partnership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="content-section" id="products">
+        <div class="section-header">
+            <h2>Tailored Colourants Across <span class="accent">Diverse Industries</span></h2>
+        </div>
+        <div class="two-column">
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Product Lines</h3>
+                <ul class="styled-list">
+                    <li>Acid Dyes</li>
+                    <li>Basic Dyes</li>
+                    <li>Solvent Dyes</li>
+                    <li>Direct Dyes</li>
+                    <li>Reactive Dyes</li>
+                    <li>Disperse Dyes</li>
+                    <li>Customized Colours for Specialized Applications</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Industries Served</h3>
+                <ul class="styled-list">
+                    <li>Agriculture</li>
+                    <li>Automotive</li>
+                    <li>Coatings & Paints</li>
+                    <li>Textiles</li>
+                    <li>Plastics & Polymers</li>
+                    <li>Printing Inks</li>
+                    <li>Leather</li>
+                    <li>Paper</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="content-section alt" id="contact">
+        <div class="section-header">
+            <h2>Let's <span class="accent">Connect</span></h2>
+            <p>Partner with us for innovative colour solutions</p>
+        </div>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.5rem;"><strong>Email:</strong> solutions@devarsons.com</p>
+                <p style="font-size: 1.1rem; color: var(--text-dark);"><strong>Phone:</strong> +91 (Contact Number)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">DEVARSONS</div>
+        <div class="footer-tagline">The Colour Solution Company.</div>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="copyright">
+            © 2025 Devarsons Industries Pvt. Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Loading Animation
+        const keywords = ['kw1', 'kw2', 'kw3', 'kw4', 'kw5'];
+        const delays = [0, 400, 800, 1200, 1600];
+        
+        keywords.forEach((id, index) => {
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                el.style.opacity = '1';
+                el.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    el.style.opacity = '0';
+                }, 400);
+            }, delays[index]);
+        });
+
+        setTimeout(() => {
+            const logo = document.getElementById('logo-container');
+            logo.style.opacity = '1';
+            logo.style.transition = 'opacity 0.8s ease';
+        }, 2200);
+
+        setTimeout(() => {
+            document.getElementById('loading-screen').classList.add('hidden');
+        }, 4000);
+
+        // Quote Rotation
+        const quotes = document.querySelectorAll('.quote');
+        let currentQuote = 0;
+        
+        setInterval(() => {
+            quotes[currentQuote].classList.remove('active');
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quotes[currentQuote].classList.add('active');
+        }, 6000);
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active Nav Link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
