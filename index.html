@@ -245,6 +245,24 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buzzword::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .buzzword:hover::before {
+            transform: scaleY(1);
         }
 
         .buzzword:nth-child(1) { animation-delay: 0.1s; }
@@ -265,11 +283,6 @@
             transform: translateY(-5px);
             background: rgba(201, 169, 97, 0.1);
             border-color: var(--gold);
-        }
-
-        .buzzword-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
         }
 
         .buzzword-text {
@@ -389,7 +402,8 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
-            border-top: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
         }
 
         .content-section.dark .feature-card {
@@ -397,15 +411,94 @@
             border: 1px solid rgba(201, 169, 97, 0.2);
         }
 
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+        }
+
         .feature-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 30px rgba(201, 169, 97, 0.2);
         }
 
+        /* Geometric Icon Styles */
         .feature-icon {
-            font-size: 2.5rem;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon-shape {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .icon-number {
+            font-size: 1.8rem;
+            font-weight: 300;
             color: var(--gold);
+            letter-spacing: 0.05rem;
+        }
+
+        /* Circle */
+        .icon-circle {
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        /* Triangle */
+        .icon-triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 43px solid var(--gold);
+            opacity: 0.8;
+        }
+
+        /* Hexagon */
+        .icon-hexagon {
+            width: 40px;
+            height: 23px;
+            background: var(--gold);
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .icon-hexagon::before,
+        .icon-hexagon::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+        }
+
+        .icon-hexagon::before {
+            bottom: 100%;
+            border-bottom: 11.5px solid var(--gold);
+        }
+
+        .icon-hexagon::after {
+            top: 100%;
+            border-top: 11.5px solid var(--gold);
+        }
+
+        /* Decorative Line */
+        .icon-line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
         }
 
         .feature-card h3 {
@@ -449,11 +542,15 @@
         }
 
         .styled-list li::before {
-            content: '→';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--gold);
-            font-weight: bold;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
         }
 
         /* Contact Section */
@@ -556,6 +653,53 @@
             font-size: 0.9rem;
         }
 
+        /* Advantage Cards */
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            background: rgba(201, 169, 97, 0.1);
+            border-color: var(--gold);
+        }
+
+        .advantage-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .advantage-icon {
+            font-size: 1.5rem;
+        }
+
+        .advantage-card p {
+            color: #CCC;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             .hero-content,
@@ -584,15 +728,6 @@
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
-        }
-
-        /* Tab Content */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
         }
     </style>
 </head>
@@ -640,27 +775,21 @@
             </div>
             <div class="buzzwords">
                 <div class="buzzword">
-                    <div class="buzzword-icon">🏆</div>
                     <div class="buzzword-text">Over a Century of Experience</div>
                 </div>
                 <div class="buzzword">
-                    <div class="buzzword-icon">💼</div>
                     <div class="buzzword-text">Fully SAP Integrated</div>
                 </div>
                 <div class="buzzword">
-                    <div class="buzzword-icon">💪</div>
                     <div class="buzzword-text">Debt Free Company</div>
                 </div>
                 <div class="buzzword">
-                    <div class="buzzword-icon">✓</div>
                     <div class="buzzword-text">Responsible Sourcing Audited</div>
                 </div>
                 <div class="buzzword">
-                    <div class="buzzword-icon">🎯</div>
                     <div class="buzzword-text">Application Oriented Focus</div>
                 </div>
                 <div class="buzzword">
-                    <div class="buzzword-icon">🌟</div>
                     <div class="buzzword-text">ISO 9001 | 14001 | 45001 Certified</div>
                 </div>
             </div>
@@ -707,7 +836,9 @@
             </div>
             <div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
+                    <div class="feature-icon">
+                        <div class="icon-line"></div>
+                    </div>
                     <h3>Our Journey</h3>
                     <p>From our founding in 1923 to becoming a global leader in specialty colourants, our journey has been marked by continuous innovation, unwavering commitment to quality, and deep partnerships with industry leaders worldwide.</p>
                 </div>
@@ -741,17 +872,30 @@
         </div>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-icon">👂</div>
+                <div class="feature-icon">
+                    <div class="icon-shape icon-circle"></div>
+                    <span class="icon-number">01</span>
+                </div>
                 <h3>We Listen</h3>
                 <p>True partnership begins with understanding. Our R&D and technical teams engage deeply with your requirements, capable of modifying existing dyes and processes to address specific needs.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🚀</div>
+                <div class="feature-icon">
+                    <div class="icon-shape">
+                        <div class="icon-triangle"></div>
+                    </div>
+                    <span class="icon-number">02</span>
+                </div>
                 <h3>We Deliver</h3>
                 <p>Efficiency and transparency are hallmarks of our service, powered by a fully integrated SAP platform with real-time information and automated order processing.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🤝</div>
+                <div class="feature-icon">
+                    <div class="icon-shape">
+                        <div class="icon-hexagon"></div>
+                    </div>
+                    <span class="icon-number">03</span>
+                </div>
                 <h3>We Partner</h3>
                 <p>We have a proven track record of creating viable, high-performance alternatives for leading MNCs, ensuring supply chain stability and innovation.</p>
             </div>
@@ -786,17 +930,23 @@
         </div>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-icon">🔬</div>
+                <div class="feature-icon">
+                    <div class="icon-line"></div>
+                </div>
                 <h3>Development Lab</h3>
                 <p>Focused on creating efficient and scalable production processes and minimizing waste through innovative chemical engineering.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📊</div>
+                <div class="feature-icon">
+                    <div class="icon-line"></div>
+                </div>
                 <h3>Analytical Lab</h3>
                 <p>Dedicated to in-house testing to meet global standards and developing internal specifications that often exceed standard parameters.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
+                <div class="feature-icon">
+                    <div class="icon-line"></div>
+                </div>
                 <h3>Application Lab</h3>
                 <p>Tasked with identifying the correct existing molecules or modifying/developing new ones to meet precise end-use requirements.</p>
             </div>
@@ -811,28 +961,28 @@
         </div>
         <div style="max-width: 1000px; margin: 0 auto;">
             <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <div class="feature-card">
-                    <h3>🏆 Century of Expertise</h3>
+                <div class="advantage-card">
+                    <h3><span class="advantage-icon">🏆</span> Century of Expertise</h3>
                     <p>Leveraging 100+ years of experience to deliver novel ideas and reliable solutions.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🎯 Application-Focused</h3>
+                <div class="advantage-card">
+                    <h3><span class="advantage-icon">🎯</span> Application-Focused</h3>
                     <p>Your needs drive our innovation. We customize products for your specific applications.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>✓ Regulatory Compliance</h3>
+                <div class="advantage-card">
+                    <h3><span class="advantage-icon">✓</span> Regulatory Compliance</h3>
                     <p>Global standards met, with audited responsible sourcing for peace of mind.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🔒 Confidentiality</h3>
+                <div class="advantage-card">
+                    <h3><span class="advantage-icon">🔒</span> Confidentiality</h3>
                     <p>Trusted partner for global MNCs, operating under strict NDAs to protect your IP.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>🌱 EHSMS Priority</h3>
+                <div class="advantage-card">
+                    <h3><span class="advantage-icon">🌱</span> EHSMS Priority</h3>
                     <p>Reliable product quality underpinned by robust systems and strong EHS commitment.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>💪 Financial Stability</h3>
+                <div class="advantage-card">
+                    <h3><span class="advantage-icon">💪</span> Financial Stability</h3>
                     <p>A debt-free company, ensuring a stable and reliable partnership.</p>
                 </div>
             </div>
