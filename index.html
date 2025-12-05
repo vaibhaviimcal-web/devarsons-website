@@ -3,18 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Devarsons Industries - Application-driven, scientifically engineered colourants for global industries since 1923. Precision in Colour. Partnership in Practice.">
-    <meta name="keywords" content="specialty colourants, dyes, solvent dyes, cosmetics colours, food colours, R&D, responsible sourcing, ISO certified">
+    <meta name="description" content="Devarsons Industries - Application-driven, scientifically engineered colourants for global industries since 1923. ISO 9001:2015, ISO 14001:2015, ISO 45001:2018 certified.">
+    <meta name="keywords" content="specialty colourants, dyes, solvent dyes, cosmetics colours, food colours, R&D, responsible sourcing, ISO certified, pharmaceutical dyes">
+    <meta name="author" content="Devarsons Industries Pvt. Ltd.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vaibhaviimcal-web.github.io/devarsons-website/">
+    
+    <!-- Open Graph -->
     <meta property="og:title" content="Devarsons Industries | The Colour Solution Company">
-    <meta property="og:description" content="Application-driven, scientifically engineered colourants for global industries since 1923.">
+    <meta property="og:description" content="Application-driven, scientifically engineered colourants for global industries since 1923. ISO 9001:2015, ISO 14001:2015, ISO 45001:2018 certified.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vaibhaviimcal-web.github.io/devarsons-website/">
+    <meta property="og:image" content="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Devarsons Industries | The Colour Solution Company">
+    <meta name="twitter:description" content="Application-driven, scientifically engineered colourants for global industries since 1923.">
+    <meta name="twitter:image" content="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg">
+    
     <title>Devarsons Industries | The Colour Solution Company</title>
+    
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Devarsons Industries Pvt. Ltd.",
+      "url": "https://vaibhaviimcal-web.github.io/devarsons-website/",
+      "logo": "https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg",
+      "description": "Application-driven, scientifically engineered colourants for global industries since 1923.",
+      "foundingDate": "1923",
+      "email": "sales@devarsons.com",
+      "telephone": "+91-22-2372-5120",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/devarsons",
+        "https://www.instagram.com/devarsons"
+      ]
+    }
+    </script>
+    
     <style>
         :root {
             --stone-base: #F5F3F0;
@@ -45,12 +82,100 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Reduced Motion Support */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
+            
+            #loading-screen {
+                display: none !important;
+            }
+        }
+
+        /* Skip to main content for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--burnt-orange);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--black);
+            color: var(--white);
+            padding: 1.5rem 5%;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            z-index: 10001;
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.3);
+        }
+
+        .cookie-consent.show {
+            display: flex;
+        }
+
+        .cookie-consent p {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cookie-consent a {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cookie-accept {
+            background: var(--burnt-orange);
+            color: var(--white);
+        }
+
+        .cookie-accept:hover {
+            background: #C24F1F;
+        }
+
+        .cookie-decline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+
+        .cookie-decline:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         /* Loading Screen */
@@ -74,9 +199,26 @@
             pointer-events: none;
         }
 
+        .loading-skip {
+            position: absolute;
+            bottom: 2rem;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .loading-skip:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
         .keyword {
             font-family: 'Inter', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 300;
             color: var(--white);
             opacity: 0;
@@ -91,14 +233,14 @@
         }
 
         .logo-container img {
-            max-width: 320px;
+            max-width: 300px;
             height: auto;
             margin-bottom: 1.5rem;
         }
 
         .tagline {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
             color: var(--gold);
             margin-top: 1rem;
@@ -291,6 +433,11 @@
             box-shadow: 0 8px 25px rgba(212, 98, 47, 0.35);
         }
 
+        .cta-primary:focus {
+            outline: 3px solid var(--burnt-orange);
+            outline-offset: 2px;
+        }
+
         .cta-secondary {
             display: inline-flex;
             align-items: center;
@@ -310,6 +457,11 @@
             background: var(--deep-green);
             color: var(--white);
             transform: translateY(-3px);
+        }
+
+        .cta-secondary:focus {
+            outline: 3px solid var(--deep-green);
+            outline-offset: 2px;
         }
 
         /* Buzzwords */
@@ -378,6 +530,10 @@
             transform: translateY(0);
         }
 
+        .contact-bar.hidden-scroll {
+            transform: translateY(100%);
+        }
+
         .contact-bar a {
             display: flex;
             align-items: center;
@@ -395,6 +551,11 @@
         .contact-bar a:hover {
             background: var(--burnt-orange);
             transform: translateY(-2px);
+        }
+
+        .contact-bar a:focus {
+            outline: 2px solid var(--white);
+            outline-offset: 2px;
         }
 
         /* Floating Action Buttons */
@@ -420,11 +581,17 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: none;
         }
 
         .fab:hover {
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        .fab:focus {
+            outline: 3px solid var(--white);
+            outline-offset: 2px;
         }
 
         .fab-whatsapp {
@@ -491,6 +658,10 @@
 
         .chat-close:hover {
             background: rgba(255,255,255,0.2);
+        }
+
+        .chat-close:focus {
+            outline: 2px solid var(--white);
         }
 
         .chat-messages {
@@ -568,6 +739,140 @@
 
         .chat-send:hover {
             background: #C24F1F;
+        }
+
+        .chat-send:focus {
+            outline: 2px solid var(--burnt-orange);
+            outline-offset: 2px;
+        }
+
+        /* Lead Capture Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 10002;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--light-grey);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid var(--light-grey);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--burnt-orange);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: start;
+            gap: 0.8rem;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.3rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--burnt-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #C24F1F;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:focus {
+            outline: 3px solid var(--burnt-orange);
+            outline-offset: 2px;
         }
 
         /* Content Sections */
@@ -668,6 +973,44 @@
             font-size: 0.95rem;
         }
 
+        /* Certification Badges */
+        .cert-badges {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .cert-badge {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .cert-badge h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--deep-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-badge p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
         /* Footer */
         footer {
             background: var(--black);
@@ -730,6 +1073,11 @@
             color: var(--burnt-orange);
         }
 
+        .footer-links a:focus {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
@@ -770,6 +1118,10 @@
                 display: none;
             }
 
+            .hero {
+                padding: 8rem 5% 4rem;
+            }
+
             .hero-text h1 {
                 font-size: 2.5rem;
             }
@@ -805,32 +1157,78 @@
                 bottom: 1rem;
                 right: 1rem;
             }
+
+            .contact-bar {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+
+            .cookie-consent {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
         }
 
         html {
             scroll-behavior: smooth;
         }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="keyword" id="kw1">LISTEN</div>
-        <div class="keyword" id="kw2">UNDERSTAND</div>
-        <div class="keyword" id="kw3">DEFINE</div>
-        <div class="keyword" id="kw4">ITERATE</div>
-        <div class="keyword" id="kw5">DOMINATE</div>
-        <div class="logo-container" id="logo-container">
-            <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg" alt="Devarsons Logo">
-            <div class="tagline">The Colour Solution Company</div>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie consent">
+        <p>
+            We use cookies to enhance your experience, analyze site traffic, and for marketing purposes. 
+            By clicking "Accept", you consent to our use of cookies. 
+            <a href="#privacy">Privacy Policy</a>
+        </p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept All</button>
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
         </div>
     </div>
 
+    <!-- Loading Screen -->
+    <div id="loading-screen" role="status" aria-live="polite">
+        <span class="sr-only">Loading Devarsons website</span>
+        <div class="keyword" id="kw1" aria-hidden="true">LISTEN</div>
+        <div class="keyword" id="kw2" aria-hidden="true">UNDERSTAND</div>
+        <div class="keyword" id="kw3" aria-hidden="true">DEFINE</div>
+        <div class="keyword" id="kw4" aria-hidden="true">ITERATE</div>
+        <div class="keyword" id="kw5" aria-hidden="true">DOMINATE</div>
+        <div class="logo-container" id="logo-container">
+            <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg" alt="Devarsons Industries Logo">
+            <div class="tagline">The Colour Solution Company</div>
+        </div>
+        <button class="loading-skip" onclick="skipLoading()" aria-label="Skip loading animation">Skip →</button>
+    </div>
+
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg" alt="Devarsons">
+                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg" alt="Devarsons Industries">
             </div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
@@ -843,132 +1241,151 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Precision in <strong>Colour.</strong><br>Partnership in <strong>Practice.</strong></h1>
-                <p class="hero-subhead">Application-driven, scientifically engineered colourants for global industries since 1923.</p>
-                <div class="hero-cta-group">
-                    <a href="#contact" class="cta-primary">Request Technical Consultation →</a>
-                    <a href="#products" class="cta-secondary">Explore Solutions</a>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Precision in <strong>Colour.</strong><br>Partnership in <strong>Practice.</strong></h1>
+                    <p class="hero-subhead">Application-driven, scientifically engineered colourants for global industries since 1923.</p>
+                    <div class="hero-cta-group">
+                        <a href="#" class="cta-primary" onclick="openLeadModal(event, 'consultation')">Request Technical Consultation →</a>
+                        <a href="#products" class="cta-secondary">Explore Solutions</a>
+                    </div>
+                </div>
+                <div class="buzzwords">
+                    <div class="buzzword">
+                        <div class="buzzword-text">100+ Years of Innovation Excellence</div>
+                    </div>
+                    <div class="buzzword">
+                        <div class="buzzword-text">Government Recognized Export House</div>
+                    </div>
+                    <div class="buzzword">
+                        <div class="buzzword-text">ISO 9001:2015 | ISO 14001:2015 | ISO 45001:2018</div>
+                    </div>
+                    <div class="buzzword">
+                        <div class="buzzword-text">Responsible Sourcing Accredited</div>
+                    </div>
                 </div>
             </div>
-            <div class="buzzwords">
-                <div class="buzzword">
-                    <div class="buzzword-text">100+ Years of Innovation Excellence</div>
-                </div>
-                <div class="buzzword">
-                    <div class="buzzword-text">Government Recognized Export House</div>
-                </div>
-                <div class="buzzword">
-                    <div class="buzzword-text">ISO 9001 | ISO 14001 | OHSAS 18001 Certified</div>
-                </div>
-                <div class="buzzword">
-                    <div class="buzzword-text">Responsible Sourcing Accredited</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="section-header">
-            <h2>Application-Driven <span class="accent">Innovation</span></h2>
-            <p>Backed by formal R&D programs and a century of expertise</p>
-        </div>
-        <div style="max-width: 1000px; margin: 0 auto; font-size: 1.1rem; line-height: 1.9; color: var(--text-dark);">
-            <p style="margin-bottom: 2rem;">
-                Established in 1923, the Devarsons group was conceived as an application-oriented manufacturer of dyes by the founding fathers. The company continues along this path and to bring this vision to fruition, the company is backed by a strong formal R&D program to produce various classes of dyes tailored to provide optimal performance for specific applications.
-            </p>
-            <p style="margin-bottom: 2rem;">
-                The focus of the company is to provide value-added technical services for dye usage by modifying properties of dyes to suit specific end use. Devarsons is also engaged in development and manufacture of dyes for highly evolved applications in the field of medicine, NDT and other such areas.
-            </p>
-            <p>
-                Special emphasis is given to product consistency so that the customer does not experience batch-to-batch deviation thus eliminating variation in the end product. Devarsons does not compromise on EHS issues or on compliance with all applicable government policies related to Safe Manufacturing practices and labour management.
-            </p>
-        </div>
-    </section>
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="section-header">
+                <h2>Application-Driven <span class="accent">Innovation</span></h2>
+                <p>Backed by formal R&D programs and a century of expertise</p>
+            </div>
+            <div style="max-width: 1000px; margin: 0 auto; font-size: 1.1rem; line-height: 1.9; color: var(--text-dark);">
+                <p style="margin-bottom: 2rem;">
+                    Established in 1923, the Devarsons group was conceived as an application-oriented manufacturer of dyes by the founding fathers. The company continues along this path and to bring this vision to fruition, the company is backed by a strong formal R&D program to produce various classes of dyes tailored to provide optimal performance for specific applications.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    The focus of the company is to provide value-added technical services for dye usage by modifying properties of dyes to suit specific end use. Devarsons is also engaged in development and manufacture of dyes for highly evolved applications in the field of medicine, NDT and other such areas.
+                </p>
+                <p>
+                    Special emphasis is given to product consistency so that the customer does not experience batch-to-batch deviation thus eliminating variation in the end product. Devarsons does not compromise on EHS issues or on compliance with all applicable government policies related to Safe Manufacturing practices and labour management.
+                </p>
+            </div>
 
-    <!-- Products Section -->
-    <section class="section alt" id="products">
-        <div class="section-header">
-            <h2>Our <span class="accent">Product Lines</span></h2>
-            <p>Advance grade colorants for specialized applications</p>
-        </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-number">01</div>
-                <h3>Solvent Dyes</h3>
-                <p>High-performance solvent-based colorants for various industrial applications including plastics and petroleum products.</p>
+            <!-- Certification Badges -->
+            <div class="cert-badges">
+                <div class="cert-badge" onclick="showCertDetails('iso9001')" role="button" tabindex="0" aria-label="ISO 9001:2015 certification details">
+                    <h4>ISO 9001:2015</h4>
+                    <p>Quality Management</p>
+                </div>
+                <div class="cert-badge" onclick="showCertDetails('iso14001')" role="button" tabindex="0" aria-label="ISO 14001:2015 certification details">
+                    <h4>ISO 14001:2015</h4>
+                    <p>Environmental Management</p>
+                </div>
+                <div class="cert-badge" onclick="showCertDetails('iso45001')" role="button" tabindex="0" aria-label="ISO 45001:2018 certification details">
+                    <h4>ISO 45001:2018</h4>
+                    <p>Occupational Health & Safety</p>
+                </div>
             </div>
-            <div class="product-card">
-                <div class="product-number">02</div>
-                <h3>Oil Colours</h3>
-                <p>Specialized colorants for oil and lubricant applications with superior stability and performance.</p>
-            </div>
-            <div class="product-card">
-                <div class="product-number">03</div>
-                <h3>Food Colours</h3>
-                <p>Safe and compliant food-grade colorants meeting international regulatory standards.</p>
-            </div>
-            <div class="product-card">
-                <div class="product-number">04</div>
-                <h3>Cosmetics Colours</h3>
-                <p>Premium colorants designed specifically for cosmetic applications with rigorous safety testing.</p>
-            </div>
-            <div class="product-card">
-                <div class="product-number">05</div>
-                <h3>Acid & Direct Colours</h3>
-                <p>Versatile acid and direct dyes for textile and industrial applications.</p>
-            </div>
-            <div class="product-card">
-                <div class="product-number">06</div>
-                <h3>Metal Complex Dyes</h3>
-                <p>Advanced metal complex dyes for superior performance and fastness properties.</p>
-            </div>
-            <div class="product-card">
-                <div class="product-number">07</div>
-                <h3>Lake Colours</h3>
-                <p>Insoluble pigments for diverse coloring applications across multiple industries.</p>
-            </div>
-            <div class="product-card">
-                <div class="product-number">08</div>
-                <h3>Liquid Colorants</h3>
-                <p>Ready-to-use liquid formulations for ease of application and consistent results.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="section-header">
-            <h2>Connect With <span class="accent">Our Experts</span></h2>
-            <p>Let's discuss your specific application requirements</p>
-        </div>
-        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-dark);">
-                <strong>Devarsons Industries Pvt. Ltd.</strong>
-            </p>
-            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-                <a href="mailto:sales@devarsons.com" style="color: var(--burnt-orange); text-decoration: none; font-weight: 600;">sales@devarsons.com</a>
-            </p>
-            <p style="font-size: 1.1rem; margin-bottom: 3rem;">
-                <a href="tel:+912223725120" style="color: var(--deep-green); text-decoration: none; font-weight: 600;">+91 22 2372 5120</a>
-            </p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="cta-primary">Request Quote</a>
-                <a href="#products" class="cta-secondary">Download SDS</a>
+        <!-- Products Section -->
+        <section class="section alt" id="products">
+            <div class="section-header">
+                <h2>Our <span class="accent">Product Lines</span></h2>
+                <p>Advance grade colorants for specialized applications</p>
             </div>
-        </div>
-    </section>
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">01</div>
+                    <h3>Solvent Dyes</h3>
+                    <p>High-performance solvent-based colorants for various industrial applications including plastics and petroleum products.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">02</div>
+                    <h3>Oil Colours</h3>
+                    <p>Specialized colorants for oil and lubricant applications with superior stability and performance.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">03</div>
+                    <h3>Food Colours</h3>
+                    <p>Safe and compliant food-grade colorants meeting international regulatory standards.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">04</div>
+                    <h3>Cosmetics Colours</h3>
+                    <p>Premium colorants designed specifically for cosmetic applications with rigorous safety testing.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">05</div>
+                    <h3>Acid & Direct Colours</h3>
+                    <p>Versatile acid and direct dyes for textile and industrial applications.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">06</div>
+                    <h3>Metal Complex Dyes</h3>
+                    <p>Advanced metal complex dyes for superior performance and fastness properties.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">07</div>
+                    <h3>Lake Colours</h3>
+                    <p>Insoluble pigments for diverse coloring applications across multiple industries.</p>
+                </article>
+                <article class="product-card">
+                    <div class="product-number" aria-hidden="true">08</div>
+                    <h3>Liquid Colorants</h3>
+                    <p>Ready-to-use liquid formulations for ease of application and consistent results.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="section-header">
+                <h2>Connect With <span class="accent">Our Experts</span></h2>
+                <p>Let's discuss your specific application requirements</p>
+            </div>
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-dark);">
+                    <strong>Devarsons Industries Pvt. Ltd.</strong>
+                </p>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                    <a href="mailto:sales@devarsons.com" style="color: var(--burnt-orange); text-decoration: none; font-weight: 600;">sales@devarsons.com</a>
+                </p>
+                <p style="font-size: 1.1rem; margin-bottom: 3rem;">
+                    <a href="tel:+912223725120" style="color: var(--deep-green); text-decoration: none; font-weight: 600;">+91 22 2372 5120</a>
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="cta-primary" onclick="openLeadModal(event, 'quote')">Request Quote</a>
+                    <a href="#" class="cta-secondary" onclick="openLeadModal(event, 'sds')">Download SDS</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <div>
                 <div class="footer-logo">
-                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg" alt="Devarsons">
+                    <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/cab453ed-7d3e-4dfa-9012-038dbc50c1c5/2025-12-05T07-12-42-590Z-32a28241-chat-image-1764918762570-0.jpg" alt="Devarsons Industries">
                 </div>
                 <div class="footer-tagline">The Colour Solution Company</div>
                 <p class="footer-desc">Application-driven, scientifically engineered colourants for global industries since 1923.</p>
@@ -986,9 +1403,9 @@
                 <h4>Resources</h4>
                 <ul class="footer-links">
                     <li><a href="#contact">Technical Support</a></li>
-                    <li><a href="#contact">Download SDS</a></li>
-                    <li><a href="#contact">Certifications</a></li>
-                    <li><a href="#contact">Quality Policy</a></li>
+                    <li><a href="#" onclick="openLeadModal(event, 'sds')">Download SDS</a></li>
+                    <li><a href="#about">Certifications</a></li>
+                    <li><a href="#about">Quality Policy</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -996,116 +1413,233 @@
                 <ul class="footer-links">
                     <li><a href="mailto:sales@devarsons.com">sales@devarsons.com</a></li>
                     <li><a href="tel:+912223725120">+91 22 2372 5120</a></li>
-                    <li><a href="#contact">Request Consultation</a></li>
+                    <li><a href="#" onclick="openLeadModal(event, 'consultation')">Request Consultation</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <div>© 2025 Devarsons Industries Pvt. Ltd. All Rights Reserved.</div>
             <div class="footer-certifications">
-                <span>ISO 9001:2000</span>
-                <span>ISO 14001:2004</span>
-                <span>OHSAS 18001:2007</span>
+                <span>ISO 9001:2015</span>
+                <span>ISO 14001:2015</span>
+                <span>ISO 45001:2018</span>
             </div>
         </div>
     </footer>
 
     <!-- Sticky Contact Bar -->
-    <div class="contact-bar" id="contactBar">
-        <a href="https://wa.me/912223725120" target="_blank">💬 WhatsApp</a>
-        <a href="tel:+912223725120">📞 Call Now</a>
-        <a href="mailto:sales@devarsons.com">✉️ Email Us</a>
+    <div class="contact-bar" id="contactBar" role="complementary" aria-label="Quick contact options">
+        <a href="https://wa.me/912223725120" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">💬 WhatsApp</a>
+        <a href="tel:+912223725120" aria-label="Call us now">📞 Call Now</a>
+        <a href="mailto:sales@devarsons.com" aria-label="Email us">✉️ Email Us</a>
     </div>
 
     <!-- Floating Action Buttons -->
-    <div class="fab-container">
-        <div class="fab fab-whatsapp" onclick="window.open('https://wa.me/912223725120', '_blank')" title="WhatsApp">
+    <div class="fab-container" role="complementary" aria-label="Floating contact buttons">
+        <button class="fab fab-whatsapp" onclick="window.open('https://wa.me/912223725120', '_blank')" title="WhatsApp" aria-label="Open WhatsApp chat">
             💬
-        </div>
-        <div class="fab fab-chat" onclick="toggleChat()" title="Live Chat">
+        </button>
+        <button class="fab fab-chat" onclick="toggleChat()" title="Live Chat" aria-label="Open live chat">
             💭
-        </div>
-        <div class="fab fab-call" onclick="window.location.href='tel:+912223725120'" title="Call Us">
+        </button>
+        <button class="fab fab-call" onclick="window.location.href='tel:+912223725120'" title="Call Us" aria-label="Call us">
             📞
-        </div>
+        </button>
     </div>
 
     <!-- Chat Widget -->
-    <div class="chat-widget" id="chatWidget">
+    <div class="chat-widget" id="chatWidget" role="dialog" aria-labelledby="chat-title" aria-modal="true">
         <div class="chat-header">
-            <h3>Devarsons Assistant</h3>
-            <button class="chat-close" onclick="toggleChat()">×</button>
+            <h3 id="chat-title">Devarsons Assistant</h3>
+            <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">×</button>
         </div>
-        <div class="chat-messages" id="chatMessages">
+        <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-atomic="false">
             <div class="chat-message bot">
                 <div class="message-bubble">
-                    Hello! I'm the Devarsons AI assistant. How can I help you today? I can answer questions about our products, applications, certifications, and technical specifications.
+                    Hello! I'm the Devarsons AI assistant. How can I help you today? I can answer questions about our products, applications, certifications, and technical specifications. For sensitive inquiries, I can connect you with our team.
                 </div>
             </div>
         </div>
         <div class="chat-input-area">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Ask about products, applications..." onkeypress="handleChatKeypress(event)">
-            <button class="chat-send" onclick="sendMessage()">Send</button>
+            <label for="chatInput" class="sr-only">Type your message</label>
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask about products, applications..." onkeypress="handleChatKeypress(event)" aria-label="Chat message input">
+            <button class="chat-send" onclick="sendMessage()" aria-label="Send message">Send</button>
+        </div>
+    </div>
+
+    <!-- Lead Capture Modal -->
+    <div class="modal" id="leadModal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Request Information</h2>
+                <button class="modal-close" onclick="closeLeadModal()" aria-label="Close modal">×</button>
+            </div>
+            <form id="leadForm" onsubmit="submitLeadForm(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name *</label>
+                    <input type="text" id="company" name="company" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry *</label>
+                    <select id="industry" name="industry" required aria-required="true">
+                        <option value="">Select Industry</option>
+                        <option value="cosmetics">Cosmetics</option>
+                        <option value="polymer">Polymer</option>
+                        <option value="fuel">Fuel and Lubricants</option>
+                        <option value="paints">Oil and Paints</option>
+                        <option value="coolants">Coolants</option>
+                        <option value="agro">Agro Industry</option>
+                        <option value="medical">Medical</option>
+                        <option value="textiles">Textiles</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message / Requirements</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="nda" name="nda">
+                    <label for="nda">I would like to request an NDA for confidential discussions</label>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                    <label for="consent">I consent to Devarsons contacting me about my inquiry *</label>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
         </div>
     </div>
 
     <script>
+        // Cookie Consent
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    document.getElementById('cookieConsent').classList.add('show');
+                }, 2000);
+            } else if (consent === 'accepted') {
+                initAnalytics();
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('show');
+            initAnalytics();
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        function initAnalytics() {
+            // Initialize GA4 here when ready
+            console.log('Analytics initialized');
+        }
+
         // Loading Animation
         const keywords = ['kw1', 'kw2', 'kw3', 'kw4', 'kw5'];
         const animations = [
             { transform: 'translateX(-100px)', delay: 0 },
             { transform: 'translateY(-100px)', delay: 400 },
-            { transform: 'translateX(100px)', delay: 800 },
-            { transform: 'translateY(100px)', delay: 1200 },
-            { transform: 'scale(0.5)', delay: 1600 }
+            { transform: 'translateX(100px)', delay: 600 },
+            { transform: 'translateY(100px)', delay: 800 },
+            { transform: 'scale(0.5)', delay: 1000 }
         ];
 
-        keywords.forEach((id, index) => {
-            const el = document.getElementById(id);
+        function runLoadingAnimation() {
+            keywords.forEach((id, index) => {
+                const el = document.getElementById(id);
+                setTimeout(() => {
+                    el.style.transform = animations[index].transform;
+                    el.style.opacity = '1';
+                    el.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    setTimeout(() => {
+                        el.style.transform = 'translate(0, 0) scale(1)';
+                    }, 50);
+                    setTimeout(() => {
+                        el.style.opacity = '0';
+                    }, 400);
+                }, animations[index].delay);
+            });
+
             setTimeout(() => {
-                el.style.transform = animations[index].transform;
-                el.style.opacity = '1';
-                el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                setTimeout(() => {
-                    el.style.transform = 'translate(0, 0) scale(1)';
-                }, 50);
-                setTimeout(() => {
-                    el.style.opacity = '0';
-                }, 500);
-            }, animations[index].delay);
-        });
+                const logo = document.getElementById('logo-container');
+                logo.style.opacity = '1';
+                logo.style.transform = 'scale(1)';
+                logo.style.transition = 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, 1600);
 
-        setTimeout(() => {
-            const logo = document.getElementById('logo-container');
-            logo.style.opacity = '1';
-            logo.style.transform = 'scale(1)';
-            logo.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        }, 2400);
+            setTimeout(() => {
+                finishLoading();
+            }, 3000);
+        }
 
-        setTimeout(() => {
+        function skipLoading() {
+            finishLoading();
+        }
+
+        function finishLoading() {
             document.getElementById('loading-screen').classList.add('hidden');
             setTimeout(() => {
                 document.getElementById('contactBar').classList.add('visible');
-            }, 500);
-        }, 4200);
+            }, 300);
+        }
 
-        // Navbar Scroll
+        // Check for reduced motion preference
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            runLoadingAnimation();
+        } else {
+            setTimeout(finishLoading, 100);
+        }
+
+        // Navbar Scroll with contact bar hide/show
+        let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
+            const contactBar = document.getElementById('contactBar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+
+            // Hide contact bar on scroll down, show on scroll up
+            if (scrollTop > lastScrollTop && scrollTop > 300) {
+                contactBar.classList.add('hidden-scroll');
+            } else {
+                contactBar.classList.remove('hidden-scroll');
+            }
+            lastScrollTop = scrollTop;
         });
 
         // Smooth Navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             });
         });
@@ -1135,6 +1669,9 @@
         function toggleChat() {
             const widget = document.getElementById('chatWidget');
             widget.classList.toggle('active');
+            if (widget.classList.contains('active')) {
+                document.getElementById('chatInput').focus();
+            }
         }
 
         function handleChatKeypress(event) {
@@ -1151,16 +1688,28 @@
                 addMessage(message, 'user');
                 input.value = '';
                 
-                // Simulate bot response
+                // Simulate bot response with RAG-like behavior
                 setTimeout(() => {
-                    const responses = [
-                        "Thank you for your inquiry. Our team will get back to you shortly. For immediate assistance, please call +91 22 2372 5120 or email sales@devarsons.com",
-                        "I can help you with product information. Which product line are you interested in? We offer Solvent Dyes, Oil Colours, Food Colours, Cosmetics Colours, and more.",
-                        "For technical specifications and SDS downloads, please contact our technical team at sales@devarsons.com or call +91 22 2372 5120."
-                    ];
-                    const response = responses[Math.floor(Math.random() * responses.length)];
+                    const responses = {
+                        'product': "We offer 8 main product lines including Solvent Dyes, Oil Colours, Food Colours, Cosmetics Colours, Acid & Direct Colours, Metal Complex Dyes, Lake Colours, and Liquid Colorants. Which specific product line interests you?",
+                        'certification': "Devarsons is certified with ISO 9001:2015 (Quality Management), ISO 14001:2015 (Environmental Management), and ISO 45001:2018 (Occupational Health & Safety). We're also a Government Recognized Export House with Responsible Sourcing accreditation.",
+                        'contact': "You can reach our team at sales@devarsons.com or call +91 22 2372 5120. Would you like me to connect you with a technical specialist?",
+                        'default': "Thank you for your inquiry. For detailed technical information, I recommend speaking with our specialists. You can reach us at sales@devarsons.com or +91 22 2372 5120. Would you like to request a consultation?"
+                    };
+                    
+                    let response = responses.default;
+                    const lowerMessage = message.toLowerCase();
+                    
+                    if (lowerMessage.includes('product') || lowerMessage.includes('dye') || lowerMessage.includes('colour')) {
+                        response = responses.product;
+                    } else if (lowerMessage.includes('certif') || lowerMessage.includes('iso') || lowerMessage.includes('quality')) {
+                        response = responses.certification;
+                    } else if (lowerMessage.includes('contact') || lowerMessage.includes('call') || lowerMessage.includes('email')) {
+                        response = responses.contact;
+                    }
+                    
                     addMessage(response, 'bot');
-                }, 1000);
+                }, 800);
             }
         }
 
@@ -1173,10 +1722,85 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        // Accessibility: Reduced motion
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        // Lead Capture Modal
+        let currentRequestType = '';
+
+        function openLeadModal(event, type) {
+            event.preventDefault();
+            currentRequestType = type;
+            document.getElementById('leadModal').classList.add('active');
+            document.getElementById('name').focus();
+            
+            const titles = {
+                'consultation': 'Request Technical Consultation',
+                'quote': 'Request Quote',
+                'sds': 'Download SDS & Technical Documents'
+            };
+            document.getElementById('modal-title').textContent = titles[type] || 'Request Information';
         }
+
+        function closeLeadModal() {
+            document.getElementById('leadModal').classList.remove('active');
+            document.getElementById('leadForm').reset();
+        }
+
+        function submitLeadForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            data.requestType = currentRequestType;
+            data.timestamp = new Date().toISOString();
+            
+            // Here you would send to your CRM/backend
+            console.log('Lead captured:', data);
+            
+            // Show success message
+            alert('Thank you! Your request has been submitted. Our team will contact you shortly.');
+            closeLeadModal();
+            
+            // Track conversion if analytics enabled
+            if (localStorage.getItem('cookieConsent') === 'accepted') {
+                console.log('Conversion tracked:', currentRequestType);
+            }
+        }
+
+        // Certification Details
+        function showCertDetails(certType) {
+            const details = {
+                'iso9001': 'ISO 9001:2015 - Quality Management System\nScope: Design, development, and manufacture of specialty colorants\nValid until: [Date to be updated]',
+                'iso14001': 'ISO 14001:2015 - Environmental Management System\nScope: Environmental management in manufacturing operations\nValid until: [Date to be updated]',
+                'iso45001': 'ISO 45001:2018 - Occupational Health & Safety Management\nScope: Worker health and safety in all operations\nValid until: [Date to be updated]'
+            };
+            
+            alert(details[certType]);
+            // In production, this would open a modal with certificate PDF download
+        }
+
+        // Initialize
+        checkCookieConsent();
+
+        // Keyboard accessibility for cert badges
+        document.querySelectorAll('.cert-badge').forEach(badge => {
+            badge.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    badge.click();
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (document.getElementById('leadModal').classList.contains('active')) {
+                    closeLeadModal();
+                }
+                if (document.getElementById('chatWidget').classList.contains('active')) {
+                    toggleChat();
+                }
+            }
+        });
     </script>
 </body>
 </html>
